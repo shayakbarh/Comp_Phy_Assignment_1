@@ -1,0 +1,1 @@
+# This is a repository for Assignment-1 of Computational Physics Course in Jan,2024 Semester.
