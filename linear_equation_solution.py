@@ -1,6 +1,7 @@
 # Question number 11
 
 # Solving system of linear equations using np.linalg.solve
+
 import numpy as np
 
 # solving the 1st system:  A1.x_1 = b1
