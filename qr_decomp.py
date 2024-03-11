@@ -14,8 +14,31 @@ Q, R = np.linalg.qr(A)
 print("The Q matrix: \n", Q, "\n The R matix: \n",R)
 
 
+
 # calculate eigenvalues using the decomposition
-eigenval_qr = np.diag(R)
+def qr_decomp(A, iteration = 10, tol=10**-3):
+
+    # initially setting V = I
+    V = np.eye(len(A))
+
+    for k in range(iteration):
+
+        # QR decomposition of A
+        Q, R = np.linalg.qr(A)
+
+        A_k = np.dot(R, Q)
+
+        V = np.dot(V, Q)    # columns of V are eigenvectors of A
+
+        eigenval = np.diagonal(A_k)
+
+        A = A_k
+
+    return eigenval, V
+
+
+# Eigenvalues and eigenvectors produced by QR decomposition
+eigenval_qr, V = qr_decomp(A)  
 print("Eigenvalues of A using QR decomposition: ", eigenval_qr)
 
 
